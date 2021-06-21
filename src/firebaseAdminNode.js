@@ -7,12 +7,14 @@ function FirebaseAdminNode(config) {
 
   this.app = firebaseAdmin.initializeApp({
 	  credential: firebaseAdmin.credential.cert(config.serviceAccountJson),
-	  databaseURL: `https://${config.serviceAccountJson.project_id}.firebaseio.com`
+	  databaseURL: `https://${config.serviceAccountJson.project_id}.firebaseio.com`,
+		storageBucket: `${config.serviceAccountJson.project_id}.appspot.com`
 	});
 
 	this._firebaseAdmin = firebaseAdmin;
-	this.messaging = firebaseAdmin.messaging();
-	this.database = firebaseAdmin.database();
+	config.messaging = firebaseAdmin.messaging();
+	config.database = firebaseAdmin.database();
+	config.bucket = firebaseAdmin.storage().bucket();
 }
 
 FirebaseAdminNode.prototype.onClose = function(removed, done) {

@@ -18,8 +18,6 @@ module.exports = function(RED) {
     }
 
     const firebaseAdminNode = new FirebaseAdminNode(node);
-    node.messaging = firebaseAdminNode.messaging;
-    node.database = firebaseAdminNode.database;
     node.on('close', firebaseAdminNode.onClose);
   }
 

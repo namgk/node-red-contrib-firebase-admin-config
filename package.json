@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-firebase-admin-config",
-  "version": "1.0.3",
+  "version": "1.1.5",
   "description": "Configuration node for node-red-contrib-firebase-(messaging/realtime-database).",
   "scripts": {
     "test": "mocha"
